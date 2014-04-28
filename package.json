@@ -114,7 +114,5 @@
   "dist": {
     "shasum": "6acb83cbbe02255888c2b35bba11adc39a7186a8"
   },
-  "_resolved": "git://github.com/danielsantiago/express-cdn#d60b185504760d9bdd6fc93f2e1278222398a60d",
-  "_from": "git://github.com/danielsantiago/express-cdn",
   "_fromGithub": true
 }
