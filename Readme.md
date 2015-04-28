@@ -2,8 +2,6 @@
 
 Node.js module for delivering optimized, minified, mangled, gzipped, and CDN-hosted assets in Express (currently by Amazon S3 and Amazon CloudFront).
 
-View documentation here <http://documentup.com/niftylettuce/express-cdn>.
-
 Follow [@niftylettuce](http://twitter.com/niftylettuce) on Twitter for updates.
 
 Like this module?  Check out [node-email-templates](https://github.com/niftylettuce/node-email-templates)!
@@ -41,7 +39,7 @@ Like this module?  Check out [node-email-templates](https://github.com/niftylett
 
 ## Add-on Modules
 
-These modules are a work in progress.
+These modules are a **not currently a work in progress**, see [#70](https://github.com/niftylettuce/express-cdn/issues/70).
 
 * [express-cdn-cloudfront][13] - Amazon S3 and Amazon CloudFront
 * [express-cdn-maxcdn][14] - MaxCDN and Amazon S3
@@ -158,11 +156,10 @@ app.configure(function() {
 });
 
 // Add the view helper
-if (semver.lt(express.version, '3.0.0')) {
+if (semver.gte(express.version, '3.0.0'))
   app.locals({ CDN: CDN() });
-} else {
+else
   app.dynamicHelpers({ CDN: CDN });
-}
 
 app.get('/', function(req, res, next) {
   res.render('basic');
@@ -374,6 +371,12 @@ These are feature requests that we would appreciate contributors for:
 
 ## Changelog
 
+* 0.2.3 - Added support for SVG files (by @zhangchiqing)
+
+* 0.2.2 - Fixed uglifyjs license comment regex (by @kudos), fixed wrong mimetypes for minify case in compile method (by @kaskovsky)
+
+* 0.2.1 - Fixed cursor css property also can be url (by @sars)
+
 * 0.2.0 - Support for CSS @media query attribute with parenthesis (by @jfred)
 
 * 0.1.9 - Added cleanCSS support to minify CSS (by @DServy)
@@ -436,6 +439,11 @@ These are feature requests that we would appreciate contributors for:
 * Aleksey Smolenchuk <lxe@lxe.co>
 * David Staley <Dstaley234@gmail.com>
 * Joshua Frederick <josh@jfred.net>
+* Rodion <i6@bk.ru>
+* kaskovsky
+* [Jonathan Cremin](http://crem.in)
+* Leo Zhang <zhangchiqing@gmail.com>
+* Herman-Scheer <g@herman-scheer.com>
 
 ## License
 
